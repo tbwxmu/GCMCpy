@@ -1,0 +1,6 @@
+REMARK  FOO                                                                           
+REMARK   DATE:     5/26/16     16:50:16      CREATED BY USER: wenbo                  
+ATOM      1  CL  CLAY    1       0.000   0.000   0.000  1.00  0.00      CLAY
+ATOM      2  LPA CLAY    1       0.000   0.000   0.000  1.00  0.00      CLAY
+TER       3      CLAY     1
+END

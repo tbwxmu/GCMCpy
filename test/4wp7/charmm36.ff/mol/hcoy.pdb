@@ -1,0 +1,9 @@
+REMARK original generated coordinate pdb file
+ATOM      1  C   HCOY    1       0.000   0.000   0.000  1.00  0.00      HCOY
+ATOM      2  H3  HCOY    1       1.682   1.022  -0.000  1.00  0.00      HCOY
+ATOM      3  O1  HCOY    1      -1.400   0.000   0.000  1.00  0.00      HCOY
+ATOM      4  O2  HCOY    1       0.700  -1.212  -0.000  1.00  0.00      HCOY
+ATOM      5  O3  HCOY    1       0.700   1.212   0.000  1.00  0.00      HCOY
+ATOM      6 LPA  HCOY    1       0.350   0.606   0.000  1.00  0.00      HCOY
+TER       7      HCOY     1
+END

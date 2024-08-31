@@ -1,0 +1,7 @@
+REMARK original generated coordinate pdb file
+ATOM      1  C1  CO3     1       0.000   0.000   0.000  1.00  0.00      CO3 
+ATOM      2  O1  CO3     1      -1.400   0.000   0.000  1.00  0.00      CO3 
+ATOM      3  O2  CO3     1       0.700  -1.212  -0.000  1.00  0.00      CO3 
+ATOM      4  O3  CO3     1       0.700   1.212   0.000  1.00  0.00      CO3 
+TER       5      CO3      1
+END

@@ -1,0 +1,110 @@
+;
+;	File 'guan.top' was generated
+;	By user: ahazel (1119)
+;	On host: ocracoke
+;	At date: Fri Feb 28 16:05:45 2020
+
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2016.3 (-:
+;	
+;	Executable:   /home/ahazel/apps/gromacs/2016.3/bin/gmx
+;	Data prefix:  /home/ahazel/apps/gromacs/2016.3
+;	Working dir:  /state/partition1/home/ahazel/silcsbio/silcs-fragments/guan
+;	Command line:
+;	  gmx pdb2gmx -f guan.pdb -p guan.top -ff charmm36 -water tip3p
+;	Force field data was read from:
+;	/opt/mackerell/apps/molcal/current/data
+;
+;	Note:
+;	This might be a non-standard force field location. When you use this topology, the
+;	force field must either be present in the current directory, or the location
+;	specified in the GMXLIB path variable or with the 'include' mdp file option.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+GUAY                3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue   1 GUAY rtp GUAY q +1.0
+     1      CG2N1      1   GUAY      C      1       0.64     12.011   ; qtot 0.64
+     2      NG2P1      1   GUAY     N1      1       -0.8     14.007   ; qtot -0.16
+     3       HGP2      1   GUAY    H11      1       0.46      1.008   ; qtot 0.3
+     4       HGP2      1   GUAY    H12      1       0.46      1.008   ; qtot 0.76
+     5      NG2P1      1   GUAY     N2      1       -0.8     14.007   ; qtot -0.04
+     6       HGP2      1   GUAY    H21      1       0.46      1.008   ; qtot 0.42
+     7       HGP2      1   GUAY    H22      1       0.46      1.008   ; qtot 0.88
+     8      NG2P1      1   GUAY     N3      1       -0.8     14.007   ; qtot 0.08
+     9       HGP2      1   GUAY    H31      1       0.46      1.008   ; qtot 0.54
+    10       HGP2      1   GUAY    H32      1       0.46      1.008   ; qtot 1
+    11         LP      1   GUAY    LPA      1       0.00      0.000   ; qtot 1
+
+[ bonds ]
+;  ai    aj funct            c0            c1            c2            c3
+    1     2     1 
+    1     5     1 
+    1     8     1 
+    2     3     1 
+    2     4     1 
+    5     6     1 
+    5     7     1 
+    8     9     1 
+    8    10     1 
+
+[ pairs ]
+;  ai    aj funct            c0            c1            c2            c3
+    2     6     1 
+    2     7     1 
+    2     9     1 
+    2    10     1 
+    3     5     1 
+    3     8     1 
+    4     5     1 
+    4     8     1 
+    5     9     1 
+    5    10     1 
+    6     8     1 
+    7     8     1 
+
+[ angles ]
+;  ai    aj    ak funct            c0            c1            c2            c3
+    2     1     5     5 
+    2     1     8     5 
+    5     1     8     5 
+    1     2     3     5 
+    1     2     4     5 
+    3     2     4     5 
+    1     5     6     5 
+    1     5     7     5 
+    6     5     7     5 
+    1     8     9     5 
+    1     8    10     5 
+    9     8    10     5 
+
+[ dihedrals ]
+;  ai    aj    ak    al funct            c0            c1            c2            c3            c4            c5
+    5     1     2     3     9 
+    5     1     2     4     9 
+    8     1     2     3     9 
+    8     1     2     4     9 
+    2     1     5     6     9 
+    2     1     5     7     9 
+    8     1     5     6     9 
+    8     1     5     7     9 
+    2     1     8     9     9 
+    2     1     8    10     9 
+    5     1     8     9     9 
+    5     1     8    10     9 
+
+[ dihedrals ]
+;  ai    aj    ak    al funct            c0            c1            c2            c3
+    1     5     2     8     2 
+
+[ virtual_sites2 ]
+; Vsite from                    funct   a
+11       1       2       1      0.05
+

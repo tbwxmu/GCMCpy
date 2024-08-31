@@ -1,0 +1,127 @@
+0 1 2 3 4 5 6 7 8 9 
+....................CHARMM force field parameters not found.
+Extracting CHARMM force field parameters...
+Start GCMC simulation at 2024-03-19 08:20:16...
+par ['charmm36.ff/ffnonbonded.itp', 'charmm36.ff/silcs.itp', 'charmm36.ff/nbfix.itp']
+fragitp ['charmm36.ff/mol/benx.itp', 'charmm36.ff/mol/prpx.itp', 'charmm36.ff/mol/dmee.itp', 'charmm36.ff/mol/meoh.itp', 'charmm36.ff/mol/form.itp', 'charmm36.ff/mol/imia.itp', 'charmm36.ff/mol/acey.itp', 'charmm36.ff/mol/mamy.itp', 'charmm36.ff/mol/sol.itp']
+atomtypes ['charmm36.ff/atomtypes.atp']
+monomerdir ['charmm36.ff/mol']
+top ['4wp7_fixed_with_5l13_silcs.1.gc.74.top']
+pdb ['4wp7_fixed_with_5l13_silcs.1.prod.74.rec.pdb']
+protitp ['4wp7_fixed_with_5l13_silcs.1.top']
+grid_dx ['1.000']
+box_size ['107.560  107.650   97.239']
+gc_center ['67.780   67.825   62.620']
+sys_center ['67.780   67.825   62.620']
+energy_cutoff_frag ['8.000']
+energy_cutoff_prot ['8.000']
+use_group_cutoff ['yes']
+use_cavity_bias ['yes']
+use_conf_bias ['yes']
+num_conf_bias_trial ['500']
+use_const_water_nbar ['yes']
+const_water_nbar ['56985']
+random_seed ['166']
+fragname ['benx     prpx     dmee     meoh     form     imia     acey     mamy      sol']
+fragconc ['0.25     0.25     0.25     0.25     0.25     0.25     0.25     0.25    55.00']
+fragmuex ['11.61     8.63     2.29    -2.04    -7.67   -11.23   -61.77   -92.72    -5.04']
+fragconf ['400       15       15       10       20      300      200      100        2']
+mctime ['0.025    0.025    0.025    0.025    0.025    0.025    0.025    0.025    0.800']
+insdel_frac ['0.6']
+nprint ['1']
+conserve_frags ['no']
+map_generation ['yes']
+op_top ['4wp7_fixed_with_5l13_silcs.1.gc.75.top']
+op_pdb ['4wp7_fixed_with_5l13_silcs.1.gc.75.pdb']
+initcycle ['no']
+map_filename_prefix ['gc_maps/4wp7_fixed_with_5l13_silcs.gc.1.75']
+mcsteps ['100']
+Using pdb file: 4wp7_fixed_with_5l13_silcs.1.prod.74.rec.pdb
+Using top file: 4wp7_fixed_with_5l13_silcs.1.gc.74.top
+Using output pdb file: 4wp7_fixed_with_5l13_silcs.1.gc.75.pdb
+Using output top file: 4wp7_fixed_with_5l13_silcs.1.gc.75.top
+Fragment benx:	muex: 11.61	conf: 400	conc: 0.25	mctime: 0.025
+Fragment prpx:	muex: 8.63	conf: 15	conc: 0.25	mctime: 0.025
+Fragment dmee:	muex: 2.29	conf: 15	conc: 0.25	mctime: 0.025
+Fragment meoh:	muex: -2.04	conf: 10	conc: 0.25	mctime: 0.025
+Fragment form:	muex: -7.67	conf: 20	conc: 0.25	mctime: 0.025
+Fragment imia:	muex: -11.23	conf: 300	conc: 0.25	mctime: 0.025
+Fragment acey:	muex: -61.77	conf: 200	conc: 0.25	mctime: 0.025
+Fragment mamy:	muex: -92.72	conf: 100	conc: 0.25	mctime: 0.025
+Fragment sol:	muex: -5.04	conf: 2	conc: 55.0	mctime: 0.8
+Using MC steps: 100
+Using cavity bias dx: 1.0
+Using seed: 166
+Using pdb file: 4wp7_fixed_with_5l13_silcs.1.prod.74.rec.pdb
+pdb atom number: 221441
+pdb cryst: [132.126, 132.213, 122.07]
+Total volume: 2132413.34447466
+Using top file: 4wp7_fixed_with_5l13_silcs.1.gc.74.top
+top atom number: 221441
+Read solute: BENX with 13 atoms
+Read solute: PRPX with 12 atoms
+Read solute: DMEE with 9 atoms
+Read solute: MEOH with 6 atoms
+Read solute: FORM with 6 atoms
+Read solute: IMIA with 9 atoms
+Read solute: ACEY with 8 atoms
+Read solute: MAMY with 9 atoms
+Read solute: SOL with 3 atoms
+Using force field file: charmm36.ff/ffnonbonded.itp ,	nb number: 445 ,	nbfix number: 37932
+Using force field file: charmm36.ff/nbfix.itp ,	nb number: 0 ,	nbfix number: 96
+Using force field file: charmm36.ff/silcs.itp ,	nb number: 2 ,	nbfix number: 2
+Solute BENX	 Movement 3 times	Insert 2 times	Delete 1 times	Translate 0 times	Rotate 0 times	
+Solute PRPX	 Movement 2 times	Insert 0 times	Delete 2 times	Translate 0 times	Rotate 0 times	
+Solute DMEE	 Movement 2 times	Insert 2 times	Delete 0 times	Translate 0 times	Rotate 0 times	
+Solute MEOH	 Movement 1 times	Insert 0 times	Delete 0 times	Translate 1 times	Rotate 0 times	
+Solute FORM	 Movement 1 times	Insert 0 times	Delete 0 times	Translate 0 times	Rotate 1 times	
+Solute IMIA	 Movement 1 times	Insert 0 times	Delete 0 times	Translate 0 times	Rotate 1 times	
+Solute ACEY	 Movement 4 times	Insert 2 times	Delete 0 times	Translate 1 times	Rotate 1 times	
+Solute MAMY	 Movement 3 times	Insert 1 times	Delete 1 times	Translate 1 times	Rotate 0 times	
+Solute SOL	 Movement 83 times	Insert 16 times	Delete 32 times	Translate 13 times	Rotate 22 times	
+Getting grid points...
+x direction: min = -3.298 max = 134.449	y direction: min = -3.241 max = 134.948	z direction: min = -2.587 max = 124.889
+x center = 65.5755	y center = 65.8535	z center = 61.150999999999996
+startxyz = [-0.48749999999999716, -0.2530000000000001, 0.11599999999999966]	endxyz = [131.63850000000002, 131.95999999999998, 122.18599999999999]
+Using cavity bias: True
+Grid dx = 1.0
+grid_n = [132, 132, 122]
+The number of grid points = 1914440
+cavity_bias_factor = 0.9006044047027654
+MC steps: 100
+Solute Name: 		 BENX		PRPX		DMEE		MEOH		FORM		IMIA		ACEY		MAMY		SOL
+Solute Muex: 		 11.61		8.63		2.29		-2.04		-7.67		-11.23		-61.77		-92.72		-5.04
+Solute Conc: 		 0.25		0.25		0.25		0.25		0.25		0.25		0.25		0.25		55.0
+Solute ConfB: 	 400		15		15		10		20		300		200		100		2
+Solute mcTime: 	 0.025		0.025		0.025		0.025		0.025		0.025		0.025		0.025		0.8
+Solute atom type number: 26
+Total atom type number: 64
+Total FF pair number: 1664
+Total fixed atom number: 30520
+Total relax atom number: 190921
+Solute BENX: Total number: 287, Max number: 644
+Solute PRPX: Total number: 292, Max number: 642
+Solute DMEE: Total number: 241, Max number: 644
+Solute MEOH: Total number: 277, Max number: 642
+Solute FORM: Total number: 277, Max number: 642
+Solute IMIA: Total number: 289, Max number: 642
+Solute ACEY: Total number: 256, Max number: 644
+Solute MAMY: Total number: 257, Max number: 643
+Solute SOL: Total number: 57077, Max number: 141294
+Python time used: 14.207715034484863 s
+Start GPU simulation...
+End GPU simulation...
+GPU simulation time: 4.02 s
+Getting data...
+Solute BENX: Total number: 286
+Solute PRPX: Total number: 292
+Solute DMEE: Total number: 241
+Solute MEOH: Total number: 277
+Solute FORM: Total number: 277
+Solute IMIA: Total number: 289
+Solute ACEY: Total number: 256
+Solute MAMY: Total number: 256
+Solute SOL: Total number: 57077
+GCMC simulation finished at 2024-03-19 08:20:36...
+Time used: 20.109105110168457 s
+

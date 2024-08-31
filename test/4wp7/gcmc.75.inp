@@ -1,0 +1,45 @@
+
+par:charmm36.ff/ffnonbonded.itp
+par:charmm36.ff/silcs.itp
+par:charmm36.ff/nbfix.itp
+fragitp:charmm36.ff/mol/benx.itp
+fragitp:charmm36.ff/mol/prpx.itp
+fragitp:charmm36.ff/mol/dmee.itp
+fragitp:charmm36.ff/mol/meoh.itp
+fragitp:charmm36.ff/mol/form.itp
+fragitp:charmm36.ff/mol/imia.itp
+fragitp:charmm36.ff/mol/acey.itp
+fragitp:charmm36.ff/mol/mamy.itp
+fragitp:charmm36.ff/mol/sol.itp
+atomtypes:charmm36.ff/atomtypes.atp
+monomerdir:charmm36.ff/mol
+top:4wp7_fixed_with_5l13_silcs.1.gc.74.top
+pdb:4wp7_fixed_with_5l13_silcs.1.prod.74.rec.pdb
+protitp:4wp7_fixed_with_5l13_silcs.1.top
+grid_dx:   1.000
+box_size: 107.560  107.650   97.239
+gc_center:  67.780   67.825   62.620
+sys_center:  67.780   67.825   62.620
+energy_cutoff_frag:   8.000
+energy_cutoff_prot:   8.000
+use_group_cutoff:yes
+use_cavity_bias:yes
+use_conf_bias:yes
+num_conf_bias_trial:500
+use_const_water_nbar:yes
+const_water_nbar:56985
+random_seed:166
+fragname:     benx     prpx     dmee     meoh     form     imia     acey     mamy      sol 
+fragconc:     0.25     0.25     0.25     0.25     0.25     0.25     0.25     0.25    55.00 
+fragmuex:    11.61     8.63     2.29    -2.04    -7.67   -11.23   -61.77   -92.72    -5.04 
+fragconf:      400       15       15       10       20      300      200      100        2 
+mctime:      0.025    0.025    0.025    0.025    0.025    0.025    0.025    0.025    0.800 
+insdel_frac:0.6
+nprint:1
+conserve_frags:no
+map_generation:yes
+op_top:4wp7_fixed_with_5l13_silcs.1.gc.75.top
+op_pdb:4wp7_fixed_with_5l13_silcs.1.gc.75.pdb
+initcycle:no
+map_filename_prefix:gc_maps/4wp7_fixed_with_5l13_silcs.gc.1.75
+mcsteps:100

@@ -1,0 +1,15 @@
+; SINGLE POINT ENERGY .mdp FILE
+; 
+integrator  = md        ; Algorithm (md = molecular dynamics, but with 0 steps it is single point energy calculation)
+nsteps      = 0         ; Maximum number of steps to perform
+
+; Parameters describing how to find the neighbors of each atom and how to calculate the interactions
+nstlist         = 1         ; Frequency to update the neighbor list and recalculate long-range interactions
+cutoff-scheme   = Verlet    ; Buffered neighbor searching
+ns_type         = grid      ; Method to determine neighbor list (simple, grid)
+coulombtype     = Cut-off   ; Treatment of long-range electrostatic interactions
+rcoulomb        = 1.5       ; Short-range electrostatic cut-off
+vdw_type        = cutoff    ; Treatment of van der Waals interactions
+rvdw            = 1.5       ; Short-range van der Waals cut-off
+pbc             = xyz       ; Periodic Boundary Conditions in all 3 directions
+

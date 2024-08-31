@@ -1,0 +1,133 @@
+;
+;	File 'mgux.top' was generated
+;	By user: ahazel (1119)
+;	On host: ocracoke
+;	At date: Wed Aug  7 16:36:39 2019
+
+;
+;	This is a standalone topology file
+;
+;	Created by:
+;	                    :-) GROMACS - gmx pdb2gmx, 2016.3 (-:
+;	
+;	Executable:   /opt/mackerell/apps/gromacs/GROMACS/bin/gmx
+;	Data prefix:  /opt/mackerell/apps/gromacs/GROMACS
+;	Working dir:  /state/partition1/home/ahazel/silcs/data/charmm36.ff/mol
+;	Command line:
+;	  gmx pdb2gmx -f mgux.pdb -p mgux.top -ff charmm36 -water tip3p
+;	Force field data was read from:
+;	/opt/mackerell/apps/molcal/current/data
+;
+;	Note:
+;	This might be a non-standard force field location. When you use this topology, the
+;	force field must either be present in the current directory, or the location
+;	specified in the GMXLIB path variable or with the 'include' mdp file option.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+MGUX                3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue   1 MGUX rtp MGUX q +1.0
+     1      CG2N1      1   MGUX     CZ      1       0.64     12.011   ; qtot 0.64
+     2      NG2P1      1   MGUX     N1      1       -0.8     14.007   ; qtot -0.16
+     3       HGP2      1   MGUX    H11      1       0.46      1.008   ; qtot 0.3
+     4       HGP2      1   MGUX    H12      1       0.46      1.008   ; qtot 0.76
+     5      NG2P1      1   MGUX     N2      1       -0.8     14.007   ; qtot -0.04
+     6       HGP2      1   MGUX    H21      1       0.46      1.008   ; qtot 0.42
+     7       HGP2      1   MGUX    H22      1       0.46      1.008   ; qtot 0.88
+     8      NG2P1      1   MGUX     N3      1       -0.7     14.007   ; qtot 0.18
+     9       HGP2      1   MGUX    H31      1       0.44      1.008   ; qtot 0.62
+    10      CG334      1   MGUX     CD      1       0.11     12.011   ; qtot 0.73
+    11       HGA3      1   MGUX    HD1      1       0.09      1.008   ; qtot 0.82
+    12       HGA3      1   MGUX    HD2      1       0.09      1.008   ; qtot 0.91
+    13       HGA3      1   MGUX    HD3      1       0.09      1.008   ; qtot 1
+    14         LQ      1   MGUX    LPA      1       0.00      0.000   ; qtot 1
+
+[ bonds ]
+;  ai    aj funct            c0            c1            c2            c3
+    1     2     1 
+    1     5     1 
+    1     8     1 
+    2     3     1 
+    2     4     1 
+    5     6     1 
+    5     7     1 
+    8     9     1 
+    8    10     1 
+   10    11     1 
+   10    12     1 
+   10    13     1 
+
+[ pairs ]
+;  ai    aj funct            c0            c1            c2            c3
+    1    11     1 
+    1    12     1 
+    1    13     1 
+    2     6     1 
+    2     7     1 
+    2     9     1 
+    2    10     1 
+    3     5     1 
+    3     8     1 
+    4     5     1 
+    4     8     1 
+    5     9     1 
+    5    10     1 
+    6     8     1 
+    7     8     1 
+    9    11     1 
+    9    12     1 
+    9    13     1 
+
+[ angles ]
+;  ai    aj    ak funct            c0            c1            c2            c3
+    2     1     5     5 
+    2     1     8     5 
+    5     1     8     5 
+    1     2     3     5 
+    1     2     4     5 
+    3     2     4     5 
+    1     5     6     5 
+    1     5     7     5 
+    6     5     7     5 
+    1     8     9     5 
+    1     8    10     5 
+    9     8    10     5 
+    8    10    11     5 
+    8    10    12     5 
+    8    10    13     5 
+   11    10    12     5 
+   11    10    13     5 
+   12    10    13     5 
+
+[ dihedrals ]
+;  ai    aj    ak    al funct            c0            c1            c2            c3            c4            c5
+    5     1     2     3     9 
+    5     1     2     4     9 
+    8     1     2     3     9 
+    8     1     2     4     9 
+    2     1     5     6     9 
+    2     1     5     7     9 
+    8     1     5     6     9 
+    8     1     5     7     9 
+    2     1     8     9     9 
+    2     1     8    10     9 
+    5     1     8     9     9 
+    5     1     8    10     9 
+    1     8    10    11     9 
+    1     8    10    12     9 
+    1     8    10    13     9 
+    9     8    10    11     9 
+    9     8    10    12     9 
+    9     8    10    13     9 
+
+[ dihedrals ]
+;  ai    aj    ak    al funct            c0            c1            c2            c3
+    1     5     2     8     2 
+
+[ virtual_sites2 ]
+; site  ai  aj  funct   a
+    14   1   8      1   0.5000

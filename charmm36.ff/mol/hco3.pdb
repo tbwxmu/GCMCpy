@@ -1,0 +1,8 @@
+REMARK original generated coordinate pdb file
+ATOM      1  C   HCO3    1       0.000   0.000   0.000  1.00  0.00      HCO3
+ATOM      2  H3  HCO3    1       1.682   1.022  -0.000  1.00  0.00      HCO3
+ATOM      3  O1  HCO3    1      -1.400   0.000   0.000  1.00  0.00      HCO3
+ATOM      4  O2  HCO3    1       0.700  -1.212  -0.000  1.00  0.00      HCO3
+ATOM      5  O3  HCO3    1       0.700   1.212   0.000  1.00  0.00      HCO3
+TER       6      HCO3     1
+END

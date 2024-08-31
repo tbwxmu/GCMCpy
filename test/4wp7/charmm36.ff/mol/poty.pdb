@@ -1,0 +1,5 @@
+REMARK original generated coordinate pdb file
+ATOM      1  POT POTY    1       0.000   0.000   0.000  1.00  0.00      POTY
+ATOM      2  LPA POTY    1       0.000   0.000   0.000  1.00  0.00      POTY
+TER       3      POTY     1
+END

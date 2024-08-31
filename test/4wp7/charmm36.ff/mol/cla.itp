@@ -1,0 +1,26 @@
+;
+;	File 'system.top' was generated
+;	By user: wenbo (0)
+;	On host: ocracoke
+;	At date: Sun May  1 18:01:36 2016
+;
+;	This is a standalone topology file
+;
+;	It was generated using program:
+;	pdb2gmx - VERSION 4.5.4
+;
+;	Command line was:
+;	pdb2gmx -f files/flbx.mod.pdb -water tip3p -p system.top -o system.pdb -ff prot36-cgenff 
+;
+;	Force field was read from current directory or a relative path - path added.
+;
+
+[ moleculetype ]
+; Name            nrexcl
+CLA               3
+
+[ atoms ]
+;   nr       type  resnr residue  atom   cgnr     charge       mass  typeB    chargeB      massB
+; residue   1 CLA  rtp CLA  q  -1.0
+     1        CLA      1    CLA     CL      1     -1.000     35.453   ;
+

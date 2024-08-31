@@ -1,0 +1,18 @@
+REMARK  FOO                                                                           
+REMARK   DATE:     9/10/12     11:42: 7      CREATED BY USER: prabhu                  
+ATOM      1  CG  PHEX    1      -0.014  -0.024   0.000  1.00  0.00      PHEX
+ATOM      2  HG  PHEX    1      -0.553  -0.961   0.000  1.00  0.00      PHEX
+ATOM      3  CD1 PHEX    1       1.388  -0.024   0.000  1.00  0.00      PHEX
+ATOM      4  HD1 PHEX    1       1.930  -0.958   0.000  1.00  0.00      PHEX
+ATOM      5  CD2 PHEX    1      -0.716   1.189  -0.000  1.00  0.00      PHEX
+ATOM      6  HD2 PHEX    1      -1.797   1.187  -0.000  1.00  0.00      PHEX
+ATOM      7  CE1 PHEX    1       2.086   1.192   0.000  1.00  0.00      PHEX
+ATOM      8  HE1 PHEX    1       3.166   1.200   0.000  1.00  0.00      PHEX
+ATOM      9  CE2 PHEX    1      -0.015   2.405  -0.000  1.00  0.00      PHEX
+ATOM     10  HE2 PHEX    1      -0.561   3.335  -0.000  1.00  0.00      PHEX
+ATOM     11  CZ  PHEX    1       1.386   2.404  -0.000  1.00  0.00      PHEX
+ATOM     12  OH  PHEX    1       2.098   3.619  -0.000  1.00  0.00      PHEX
+ATOM     13  HH  PHEX    1       1.456   4.330  -0.000  1.00  0.00      PHEX
+ATOM     14  LPA PHEX    1       X.XXX   X.XXX  -0.000  1.00  0.00      PHEX
+TER      15      PHEX     1
+END

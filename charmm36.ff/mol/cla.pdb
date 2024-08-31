@@ -1,0 +1,5 @@
+REMARK  FOO                                                                           
+REMARK   DATE:     5/26/16     16:50:16      CREATED BY USER: wenbo                  
+ATOM      1  CL  CLA     1       0.000   0.000   0.000  1.00  0.00      CLA 
+TER       2      CLA      1
+END

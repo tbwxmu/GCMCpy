@@ -1,0 +1,13 @@
+REMARK original generated coordinate pdb file
+ATOM      1  C   GUAN    1       0.120  -0.178   0.711  1.00  0.00      GUAN
+ATOM      2  N1  GUAN    1       1.351   0.113   0.516  1.00  0.00      GUAN
+ATOM      3  H11 GUAN    1       1.973  -0.564   0.065  1.00  0.00      GUAN
+ATOM      4  H12 GUAN    1       1.716   1.024   0.810  1.00  0.00      GUAN
+ATOM      5  N2  GUAN    1      -0.657   0.670   1.273  1.00  0.00      GUAN
+ATOM      6  H21 GUAN    1      -0.295   1.583   1.564  1.00  0.00      GUAN
+ATOM      7  H22 GUAN    1      -1.641   0.438   1.432  1.00  0.00      GUAN
+ATOM      8  N3  GUAN    1      -0.335  -1.317   0.345  1.00  0.00      GUAN
+ATOM      9  H31 GUAN    1      -1.319  -1.551   0.501  1.00  0.00      GUAN
+ATOM     10  H32 GUAN    1       0.286  -1.998  -0.103  1.00  0.00      GUAN
+TER      11      GUAN     1
+END
