@@ -51,8 +51,8 @@ class GCMCSimulation:
 
         self.ff_pairs = []
 
-        for i, type1 in enumerate(self.atomtypes1):
-            for j, type2 in enumerate(self.atomtypes2):
+        for i, type1 in enumerate(self.atomtypes1):#frag atom include water  26 types
+            for j, type2 in enumerate(self.atomtypes2):#all include protein etc.. 64 types
                 ff_pair = [0,0]
                 if (type1, type2) in self.nbfix_dict:
                     ff_pair[0] = self.nbfix_dict[(type1, type2)][0]
@@ -70,10 +70,10 @@ class GCMCSimulation:
 
                     ff_pair[0] = sigma
                     ff_pair[1] = epsilon
-                self.ff_pairs.append(ff_pair)
+                self.ff_pairs.append(ff_pair)#len
 
         
-        print(f"Total FF pair number: {len(self.ff_pairs)}")
+        print(f"Total FF pair number: {len(self.ff_pairs)}")##N= atomtypes1_n *atomtypes2_n
         
         # print(self.ff_pairs)
 
@@ -94,7 +94,10 @@ class GCMCSimulation:
                 self.fix_atoms.append(atom)#non-fragement such as protein ions ....
         
 
-        self.fraglist =[[relax_atoms[i][j:j + len(self.fragments[i])] for j in range(0, len(relax_atoms[i]), len(self.fragments[i]))] for i in range(len(self.fragments))]
+        self.fraglist =[
+            [relax_atoms[i][j:j + len(self.fragments[i])] for j in range(0, len(relax_atoms[i]), len(self.fragments[i]))] 
+                        for i in range(len(self.fragments))
+                        ]
         
         print(f"Total fixed atom number: {len(self.fix_atoms)}")
         print(f"Total relax atom number: {len(self.atoms) - len(self.fix_atoms)}")
@@ -103,7 +106,7 @@ class GCMCSimulation:
         #     print(f"Fragment {self.fragmentName[i]} number: {len(self.fraglist[i])}")
 
 
-        self.set_fixCut()
+        self.set_fixCut()#atom.sequence2 assign
 
         self.update_data()#assign the info need
 
@@ -539,7 +542,7 @@ class GCMCDataset:
         n = -1
         for atom in self.fix_atoms:
             x, y, z = atom.x, atom.y, atom.z
-            if np.sqrt((x - x0) ** 2 + (y - y0) ** 2 + (z - z0) ** 2) > self.fixCutoff:
+            if np.sqrt((x - x0) ** 2 + (y - y0) ** 2 + (z - z0) ** 2) > self.fixCutoff:#6
                 n += 1
                 x0, y0, z0 = x, y, z
                 atom.sequence2 = n
@@ -596,13 +599,13 @@ class GCMCDataset:
         else:
             TotalResidueNum = self.fix_atoms[-1].sequence2 + 1 + sum([self.fragmentInfo[i]['maxNum'] for i in range(len(self.fragmentName))])
         TotalAtomNum = len(self.fix_atoms) + sum([self.fragmentInfo[i]['maxNum'] * self.fragmentInfo[i]['num_atoms'] for i in range(len(self.fragmentName))]) 
+        
         #SET residueInfo ,atomInfo
         self.residueInfo = np.empty(TotalResidueNum, dtype=Residue_dtype)
         self.atomInfo = np.empty(TotalAtomNum, dtype=Atom_dtype)
 
         n = -1
-        for i, atom in enumerate(self.fix_atoms):
-
+        for i, atom in enumerate(self.fix_atoms):#protein with ions fixed atoms
             sequence = atom.sequence2 
             if sequence != n:
                 n = sequence
@@ -622,10 +625,13 @@ class GCMCDataset:
             self.atomInfo[i]['position'][2] = atom.z
             self.atomInfo[i]['charge'] = atom.charge
             self.atomInfo[i]['type'] = atom.typeNum
+
         if len(self.fix_atoms) == 0:
             sequence = -1
+        else:
+            self.nonFragment_resi=sequence
         for i in range(sequence + 1):
-            self.residueInfo[i]['position'][0] /= self.residueInfo[i]['atomNum']
+            self.residueInfo[i]['position'][0] /= self.residueInfo[i]['atomNum']#residue position is mean xyz based on the atom_nums
             self.residueInfo[i]['position'][1] /= self.residueInfo[i]['atomNum']
             self.residueInfo[i]['position'][2] /= self.residueInfo[i]['atomNum']
         
@@ -638,7 +644,7 @@ class GCMCDataset:
                 self.residueInfo[sequence]['position'][0] = 0
                 self.residueInfo[sequence]['position'][1] = 0
                 self.residueInfo[sequence]['position'][2] = 0
-                if j < self.fragmentInfo[i]['totalNum']:
+                if j < self.fragmentInfo[i]['totalNum']:# here based on the pdbfile
                     for k, atom in enumerate(self.fraglist[i][j]):
                         self.residueInfo[sequence]['position'][0] += atom.x
                         self.residueInfo[sequence]['position'][1] += atom.y
@@ -727,7 +733,7 @@ class GCMCDataset:
             # print(f"Fragment {self.fragmentName[i]}: The final center of conf: {atom_center}")
         
 
-    def get_data(self):
+    def get_data(self):#used in after gcmc_run step
 
         print("Getting data...")
         

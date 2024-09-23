@@ -1,0 +1,15 @@
+P(i)= 
+∑ 
+j
+​
+ exp(−β(tempInfo[j][ 
+′
+ charge 
+′
+ ]−energyMin))
+exp(−β(tempInfo[i][ 
+′
+ charge 
+′
+ ]−energyMin))
+​

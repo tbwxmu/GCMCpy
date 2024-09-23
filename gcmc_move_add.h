@@ -177,8 +177,9 @@ extern "C"{
                     double confPSum = 0;
                     for (auto iit : confIndexUsed)
                     {
-                        confPSum += confProbabilities[iit] / sumP;
-                        confProbabilities[iit] = confPSum;
+                        // confPSum += confProbabilities[iit] / sumP; // confPSum += why not  confPSum =
+                        // confProbabilities[iit] = confPSum;
+                        confProbabilities[iit] = confProbabilities[iit] / sumP;
                     }
                     float ran = (float)rand() / (float)RAND_MAX;
 
@@ -203,7 +204,7 @@ extern "C"{
                 float p = Min(1, fnTmp / (n + 1) * exp(B - beta * diff));
 
                 // Generate a random number
-                float ran = (float) rand() / (float)RAND_MAX;
+                float ran = (float) rand() / (float)RAND_MAX;// why need two time rando number??
 
                 // If the random number is less than the acceptance probability
                 if (ran < p)
@@ -231,7 +232,7 @@ extern "C"{
                 }
             }
 
-            if (needUpdate){
+            if (needUpdate){//should not after while loop, this may lead multiple inserts at one time
                 // Copy the temporary information from the host to the device
                 cudaMemcpy(tempInfoDevice, tempInfoHost, sizeof(Atom)*numBlocks, cudaMemcpyHostToDevice);
 

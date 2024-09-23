@@ -5,6 +5,7 @@ from .gcmc_move_add import *
 from .gcmc_move_del import *
 from .gcmc_move_trn import *
 from .gcmc_move_rot import *
+# from ..values import *
 
 __all__=["setup_rng_states",
 "runGCMC_cuda"]
@@ -64,7 +65,9 @@ def runGCMC_cuda(info, fragmentInfo, residueInfo, atomInfo, grid, ff, moveArray)
     for i in range(maxConf):
         TempInfo[i] = Atom(type=0)
 
-    GTempInfo[:] = cp.array(TempInfo)  # Copy to device
+    # GTempInfo[:] = cp.array(TempInfo)  # Copy to device
+
+    # GTempInfo = np.zeros(maxConf, dtype=Atom_dtype)
 
     # Setup random number generator states
     # d_rng_states = cp.zeros((maxConf, cp.numThreadsPerBlock), dtype=cp.uint32)
@@ -82,6 +85,8 @@ def runGCMC_cuda(info, fragmentInfo, residueInfo, atomInfo, grid, ff, moveArray)
         # Perform move based on the moveMoveType
         if moveMoveType == 0:  # Insert
             accepted = move_add(info, Ginfo, fragmentInfo, GfragmentInfo, GresidueInfo, GatomInfo, Ggrid, Gff, moveFragType, GTempFrag, TempInfo, GTempInfo, d_rng_states)
+            if accepted:
+                print('added or insert fragment')#also use this add to init GCMC frag around protein
         elif moveMoveType == 1:  # Delete
             accepted = move_del(info, Ginfo, fragmentInfo, GfragmentInfo, GresidueInfo, GatomInfo, Ggrid, Gff, moveFragType, GTempFrag, TempInfo, GTempInfo, d_rng_states)
         elif moveMoveType == 2:  # Translate

@@ -64,21 +64,6 @@ def read_itp_block(itp_file):
     '''Read a Gromacs .itp file and return a list of atoms'''
 
     s = open(itp_file, 'r').read()
-
-    # blocks = {}
-    # current_block = "title"
-    # blocks[current_block] = []
-    # for line in s.split('\n'):
-    #     line = re.sub(r';.*', '', line)
-    #     line = re.sub(r'#.*', '', line)
-    #     match = re.match(r'\[(.*)\]', line)
-    #     if match:
-    #         current_block = match.group(1).strip()
-    #         if current_block not in blocks:
-    #             blocks[current_block] = []
-    #     else:
-    #         if current_block and line.strip():
-    #             blocks[current_block].append(line.strip())
     blocks = []
     current_block = "title"
     blocks.append([current_block])
@@ -317,10 +302,10 @@ def read_ff(ff_file):
     '''Read a Gromacs .ff file and return a list of atoms'''    
     nb_dict = {}
     nbfix_dict = {}
-    blocks = read_itp_block(ff_file)
+    blocks = read_itp_block(ff_file)#list of block, keyword for each list block
 
     for block in blocks:
-        if block[0] == 'atomtypes':
+        if block[0] == 'atomtypes':#charmm36.ff/silcs.itp charmm36.ff/ffnonbonded.itp
             for line in block[1:]:
                 line = line.strip()
                 if line:
@@ -329,7 +314,7 @@ def read_ff(ff_file):
                     if match:
                         nb_dict[match.group(1)] = [float(match.group(6)),float(match.group(7))]
     
-        if block[0] == 'nonbond_params' or block[0] == 'pairtypes':
+        if block[0] == 'nonbond_params' or block[0] == 'pairtypes':#charmm36.ff/ffnonbonded.itp
             for line in block[1:]:
                 line = line.strip()
                 if line:

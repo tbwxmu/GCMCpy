@@ -125,12 +125,13 @@ def calc_elec(charge1, charge2, dist):
     return E_elec
 
 
-def calcProtEnergy(SharedInfo, SharedFragmentInfo, GfragmentInfo, GresidueInfo, GatomInfo, Gff, GTempInfo, sh_energy):
-    maxResidueNum = GfragmentInfo['startRes']
-
-    for resi in range(maxResidueNum):
+def calcProtEnergy(SharedInfo, SharedFragmentInfo, nonFragment_resi, GresidueInfo, GatomInfo, Gff, GTempInfo, sh_energy):
+    # nonFragment_resi = GfragmentInfo['startRes']
+    #cal the protein with sepcify frgaments
+    for resi in range(nonFragment_resi):
+        #distanceP(x, y, period)
         if distanceP(GTempInfo['position'], GresidueInfo[resi]['position'], SharedInfo['cryst']) > SharedInfo['cutoff']:
-            continue#>=15 skip
+            continue#>=15 skip , consitrain dist step <15  with only calcualte fistr atoms positon of each residue
 
         resiStart = GresidueInfo[resi]['atomStart']
         resiEnd = resiStart + GresidueInfo[resi]['atomNum']
@@ -139,9 +140,9 @@ def calcProtEnergy(SharedInfo, SharedFragmentInfo, GfragmentInfo, GresidueInfo, 
         for atomi in range(resiStart, resiEnd):
             for atomj in range(SharedFragmentInfo['num_atoms']):
                 distance = distanceP(GatomInfo[atomi]['position'], SharedFragmentInfo['atoms'][atomj]['position'], SharedInfo['cryst'])
-                # The `typeij` variable is used to calculate the index for accessing the parameters
-                # related to the interaction between two atom types in the force field. It is
-                # calculated based on the types of atoms involved in the interaction.
+                # for i, type1 in enumerate(self.atomtypes1):#frag atom include water  26 types
+                #     for j, type2 in enumerate(self.atomtypes2):#all include protein etc.. 64 types
+                #   26 *64        i*64 + j    i(1,26) j(1,64)
                 typeij = SharedFragmentInfo['atoms'][atomj]['type'] * SharedInfo['ffYNum'] + GatomInfo[atomi]['type']
                 resiEnergy += calc_vdw_nbfix(Gff[typeij * 2], Gff[typeij * 2 + 1], distance ** 2)
                 resiEnergy += calc_elec(SharedFragmentInfo['atoms'][atomj]['charge'], GatomInfo[atomi]['charge'], distance)
@@ -153,11 +154,9 @@ def calcFragEnergy(SharedInfo, SharedFragmentInfo, GfragmentInfo, GresidueInfo, 
     for fragType in range(SharedInfo['fragTypeNum']):
         startResidueNum = GfragmentInfo[fragType]['startRes']
         endResidueNum = startResidueNum + GfragmentInfo[fragType]['totalNum']
-
         for resi in range(startResidueNum, endResidueNum):
-            if resi == SharedFragmentInfo['startRes']:
+            if resi == SharedFragmentInfo['startRes']:#it seem sharedFrag always use the first resi of this type
                 continue
-
             if distanceP(GTempInfo['position'], GresidueInfo[resi]['position'], SharedInfo['cryst']) > SharedInfo['cutoff']:
                 continue
 

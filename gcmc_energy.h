@@ -113,7 +113,7 @@ extern "C"{
             //     atoms[idx].position[2] = atom_position[0] * sh_R[2][0] + atom_position[1] * sh_R[2][1] + atom_position[2] * sh_R[2][2];
             // }
         }
-
+        // a sequence of pseudorandom floats uniformly distributed between 0.0 and 1.0
         __device__ void randomFragment(const InfoStruct &SharedInfo, AtomArray &SharedFragmentInfo, Atom *GTempInfo, const float *Ggrid, curandState *rng_states) {
 
             int tid = threadIdx.x;
@@ -159,13 +159,11 @@ extern "C"{
             if (tid < 3){
                 GTempInfo->position[tid] = randomR[tid];
             }
-            if (tid == 4)
+            if (tid == 4){
                 GTempInfo->type = -1;
-
-
-
-
+            }
         }
+
 
         __device__ __host__ inline float fast_round(const float a) {
             return a >= 0 ? (int)(a + 0.5f) : (int)(a - 0.5f);

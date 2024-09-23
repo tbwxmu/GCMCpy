@@ -33,7 +33,7 @@ def Gmove_add(Ginfo, GfragmentInfo, GresidueInfo, GatomInfo, Ggrid, Gff, moveFra
 @cp.fuse()
 def GupdateAdd(GfragmentInfo, GresidueInfo, GatomInfo, GTempFrag, GTempInfo, moveFragType, totalNum):
     bidStartRes = GfragmentInfo[moveFragType].startRes + GTempInfo[cp.blockIdx.x].type
-
+    #if not GCMC just add frags in the box grid, we can use parallel style like the above
     bidAtomNum = GresidueInfo[bidStartRes].atomNum
     bidStartAtom = GresidueInfo[bidStartRes].atomStart
 
@@ -47,7 +47,7 @@ def GupdateAdd(GfragmentInfo, GresidueInfo, GatomInfo, GTempFrag, GTempInfo, mov
         GatomInfo[bidStartAtom + i].charge = GTempFrag[cp.blockIdx.x].atoms[i].charge
 
 # Main move_add function
-def move_add(infoHost, infoDevice, fragmentInfoHost, fragmentInfoDevice, residueInfoDevice, atomInfoDevice,
+def move_add(infoHost, Ginfo, fragmentInfoHost, fragmentInfoDevice, residueInfoDevice, atomInfoDevice,
               gridDevice, ffDevice, moveFragType, tempFragDevice, tempInfoHost, tempInfoDevice, rngStatesDevice):
     #moveFragType 0~8 based n types of frag
     if fragmentInfoHost[moveFragType].totalNum == fragmentInfoHost[moveFragType].maxNum:
@@ -57,7 +57,9 @@ def move_add(infoHost, infoDevice, fragmentInfoHost, fragmentInfoDevice, residue
 
     # Launch the move_add kernel
     # Gmove_add(numBlocks, cp.numThreadsPerBlock)(infoDevice, fragmentInfoDevice, residueInfoDevice, atomInfoDevice, gridDevice, ffDevice, moveFragType, tempFragDevice, tempInfoDevice, rngStatesDevice)
-    Gmove_add(infoDevice, fragmentInfoDevice, residueInfoDevice, atomInfoDevice, gridDevice, ffDevice, moveFragType, tempFragDevice, tempInfoDevice, rngStatesDevice)
+    Gmove_add(Ginfo, fragmentInfoDevice, residueInfoDevice, atomInfoDevice, gridDevice, ffDevice, moveFragType,
+               tempFragDevice, tempInfoDevice, rngStatesDevice)
+    
     # Copy tempInfo back to host
     cp.cuda.runtime.memcpy(tempInfoHost, tempInfoDevice, size=tempInfoHost.nbytes, kind=cp.cuda.runtime.memcpyDeviceToHost)
 
@@ -114,9 +116,8 @@ def move_add(infoHost, infoDevice, fragmentInfoHost, fragmentInfoDevice, residue
                 tempInfoHost[confIndex].type = fragmentInfoHost[moveFragType].totalNum
                 fragmentInfoHost[moveFragType].totalNum += 1
                 needUpdate = True
+                break
 
     if needUpdate:
-        cp.cuda.runtime.memcpy(tempInfoDevice, tempInfoHost, size=tempInfoHost.nbytes, kind=cp.cuda.runtime.memcpyHostToDevice)
         GupdateAdd(numBlocks, cp.numThreadsPerBlock)(fragmentInfoDevice, residueInfoDevice, atomInfoDevice, tempFragDevice, tempInfoDevice, moveFragType, fragmentInfoHost[moveFragType].totalNum)
-
     return needUpdate

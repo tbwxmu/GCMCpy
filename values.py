@@ -35,7 +35,7 @@ AtomArray_dtype = np.dtype([
     ('maxNum', np.int32),
 
     ('num_atoms', np.int32),
-    ('atoms', Atom_dtype, (20, ))
+    ('atoms', Atom_dtype, (20, ))#assume current frag atoms <=20 atoms, change it  when >20
 ])
 
 Info_dtype = np.dtype([
